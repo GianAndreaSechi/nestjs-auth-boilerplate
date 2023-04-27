@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class UsersController {
     @Get()
     getUsers() {
-        return JSON.stringify({'ping': Date.now()});
+        return JSON.stringify({ 'ping': Date.now() });
     }
 }
