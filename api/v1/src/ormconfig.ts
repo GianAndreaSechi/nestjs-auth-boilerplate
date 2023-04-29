@@ -5,8 +5,8 @@ export const dbConfig: TypeOrmModuleOptions = {
     host: '127.0.0.1',
     port: 3306,
     username: 'root',
-    password: '',
-    database: '',
-    entities: [],
-    synchronize: true,
+    password: null,
+    database: 'myPocket',
+    entities: [__dirname + '/../**/*.entity.ts'],
+    synchronize: false,
 };
