@@ -7,6 +7,6 @@ export const dbConfig: TypeOrmModuleOptions = {
     username: 'root',
     password: null,
     database: 'myPocket',
-    entities: [__dirname + '/../**/*.entity.ts'],
+    entities: [__dirname + '/../**/*.entity.js'], //use .js because .ts broke the things
     synchronize: false,
 };

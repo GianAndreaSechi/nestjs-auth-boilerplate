@@ -1,11 +1,11 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Scope } from '@nestjs/common';
 import { UsersService } from '../services/users.service';
 
-@Controller('users')
+@Controller({path: 'users', scope: Scope.REQUEST})
 export class UsersController {
     constructor(private readonly userService: UsersService) {}
     @Get()
     getUsers() {
-        return JSON.stringify(this.userService.findAll());
+        return this.userService.findAll();
     }
 }
