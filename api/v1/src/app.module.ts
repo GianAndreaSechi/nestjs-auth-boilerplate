@@ -5,15 +5,14 @@ import { PingModule } from './modules/ping.module';
 import { createConnection } from 'typeorm';
 import { dbConfig } from './ormconfig';
 import { UsersModule } from './modules/users/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserEntity } from './modules/users/entities/user.entity';
 
 @Module({
-  imports: [PingModule, UsersModule],
+  imports: [
+    TypeOrmModule.forRoot(dbConfig),
+    PingModule, 
+    UsersModule],
 })
 export class AppModule {
-  async configure() {
-    let TYPEORM_ENTITIES_DB = [
-      //insert entities
-    ];
-    await createConnection({...dbConfig, entities: TYPEORM_ENTITIES_DB});
-  }
 }

@@ -1,13 +1,12 @@
-import { MysqlConnectionOptions } from "typeorm/driver/mysql/MysqlConnectionOptions";
+import { TypeOrmModuleOptions } from "@nestjs/typeorm";
 
-require('dotenv').config();
-export const dbConfig: MysqlConnectionOptions = {
-    name: '',
+export const dbConfig: TypeOrmModuleOptions = {
     type: 'mysql',
     host: '127.0.0.1',
-    logging: false,
     port: 3306,
     username: 'root',
     password: '',
     database: '',
+    entities: [],
+    synchronize: true,
 };
