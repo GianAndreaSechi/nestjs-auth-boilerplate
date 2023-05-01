@@ -5,7 +5,6 @@ import { UserEntity } from '../entities/user.entity';
 import { UserDto } from '../entities/dto/user.dto';
 import * as bcrypt from 'bcrypt';
 
-
 @Injectable()
 export class UsersService {
   constructor(
@@ -23,21 +22,23 @@ export class UsersService {
     });
   }
 
-  addUser(payload: UserDto): string {
-    const hashed_password = bcrypt.hash(payload.password, 15);
+  addUser(payload: UserDto): UserEntity {
+    const hashed_password = bcrypt.hashSync(payload.password, 15);
+    payload.password = hashed_password;
 
     var role = 'user';
     if (payload.role) {
        role = payload.role;
     }
+    
     const user = this.usersRepository.create({
       username: payload.username,
-      password: hashed_password,
+      password: payload.password,
       email: payload.email,
       role: role
     });
     
     this.usersRepository.save(user);
-    return user.username + 'correctly created !';
+    return user;
   }
 }
