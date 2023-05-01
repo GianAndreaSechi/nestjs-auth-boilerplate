@@ -8,8 +8,8 @@ export class UsersController {
     getUsers() {
         return this.userService.findAll();
     }
-    @Get(':username')
-    getUser(@Param('username') username: string) {
-        return this.userService.findUser(username);
+    @Get(':id')
+    getUser(@Param('id') id: bigint) {
+        return this.userService.findUser(id);
     }
 }

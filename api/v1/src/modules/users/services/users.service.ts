@@ -14,9 +14,9 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  findUser(username: string): Promise<UserEntity> {
+  findUser(id: bigint): Promise<UserEntity> {
     return this.usersRepository.findOne({
-      where: { username }
+      where: { id }
     });
   }
 }
