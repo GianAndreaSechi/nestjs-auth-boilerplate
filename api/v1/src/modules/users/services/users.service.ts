@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { UserDto } from '../entities/dto/user.dto';
 import * as bcrypt from 'bcrypt';
+import { UserInfo } from 'os';
 
 @Injectable()
 export class UsersService {
@@ -16,9 +17,15 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  findUser(id: bigint): Promise<UserEntity> {
+  findOneById(id: bigint): Promise<UserEntity> {
     return this.usersRepository.findOne({
       where: { id }
+    });
+  }
+
+  findOneByUsername(username: string): Promise<UserEntity> {
+    return this.usersRepository.findOne({
+      where: { username: username }
     });
   }
 

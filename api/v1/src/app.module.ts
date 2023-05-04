@@ -6,13 +6,15 @@ import { createConnection } from 'typeorm';
 import { dbConfig } from './ormconfig';
 import { UsersModule } from './modules/users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserEntity } from './modules/users/entities/user.entity';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(dbConfig),
     PingModule, 
-    UsersModule],
+    UsersModule,
+    AuthModule
+  ],
 })
 export class AppModule {
 }

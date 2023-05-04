@@ -11,7 +11,7 @@ export class UsersController {
     }
     @Get(':id')
     getUser(@Param('id') id: bigint) {
-        return this.userService.findUser(id);
+        return this.userService.findOneById(id);
     }
     @Post('/create')
     addUser(@Body() payload: UserDto){
