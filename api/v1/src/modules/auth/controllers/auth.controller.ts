@@ -10,7 +10,7 @@ import {
   } from '@nestjs/common';
   import { AuthGuard } from '../guards/auth.guard';
   import { AuthService } from '../services/auth.service';
-  
+
   @Controller('auth')
   export class AuthController {
     constructor(private authService: AuthService) {}

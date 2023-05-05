@@ -9,9 +9,13 @@ export class UsersController {
     getUsers() {
         return this.userService.findAll();
     }
-    @Get(':id')
-    getUser(@Param('id') id: bigint) {
+    @Get('/id/:id')
+    getUserById(@Param('id') id: bigint) {
         return this.userService.findOneById(id);
+    }
+    @Get('/username/:username')
+    getUser(@Param('username') username: string) {
+        return this.userService.findOneByUsername(username);
     }
     @Post('/create')
     addUser(@Body() payload: UserDto){
