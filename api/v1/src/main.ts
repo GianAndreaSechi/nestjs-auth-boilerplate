@@ -13,12 +13,19 @@ async function bootstrap() {
       .setTitle('HomeToolbox')
       .setDescription('Api Boilerplate with authentication and swagger')
       .setVersion(version)
+      .addBearerAuth({
+        type:"http",
+        scheme:'bearer',
+        bearerFormat:'JWT',
+    
+        } ,'access-token')
+
       .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document, {
     swaggerOptions: {
-      supportedSubmitMethods: ['get']
+      supportedSubmitMethods: ['get'],
     }
   });
 

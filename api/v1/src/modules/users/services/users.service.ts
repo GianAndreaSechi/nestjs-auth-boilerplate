@@ -19,7 +19,7 @@ export class UsersService {
 
   findOneById(id: bigint): Promise<UserEntity> {
     return this.usersRepository.findOne({
-      where: { id }
+      where: { id: id }
     });
   }
 
