@@ -1,4 +1,5 @@
+require('dotenv').config();
 export const jwtConstants = {
-    secret: 'Questo è un secret di test',
+    secret: process.env.JWT_SECRET,
   };
   
