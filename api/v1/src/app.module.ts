@@ -11,6 +11,7 @@ import { AuthModule } from './modules/auth/auth.module';
 //set authguard globally
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
+import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     TypeOrmModule.forRoot(dbConfig),
