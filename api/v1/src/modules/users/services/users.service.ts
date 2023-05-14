@@ -5,16 +5,22 @@ import { UserEntity } from '../entities/user.entity';
 import { UserDto } from '../entities/dto/user.dto';
 import * as bcrypt from 'bcrypt';
 import { UserInfo } from 'os';
+import { UserResponseDto } from '../entities/dto/user.response.dto';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(UserEntity)
-    private usersRepository: Repository<UserEntity>,
+    private usersRepository: Repository<UserEntity>
   ) {}
 
-  findAll(): Promise<UserEntity[]> {  
-    return this.usersRepository.find();
+  async findAll(): Promise<UserResponseDto[]> { 
+    const users = await this.usersRepository.find();
+    return users.map((user) => ({
+      username: user.username,
+      email: user.email,
+      role: user.role
+    }));
   }
 
   findOneById(id: bigint): Promise<UserEntity> {
@@ -29,7 +35,7 @@ export class UsersService {
     });
   }
 
-  addUser(payload: UserDto): UserEntity {
+  addUser(payload: UserDto): Promise<UserResponseDto> {
     const hashed_password = bcrypt.hashSync(payload.password, 15);
     payload.password = hashed_password;
 
@@ -45,7 +51,13 @@ export class UsersService {
       role: role
     });
     
-    this.usersRepository.save(user);
-    return user;
-  }
+    return this.usersRepository.save(user)
+    .then(user => {
+      return {
+        username: user.username,
+        email: user.email,
+        role: user.role
+      };
+    });
+  } 
 }
