@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsString, IsNotEmpty, IsOptional, IsInt } from 'class-validator';
 
 export class UserDto {
@@ -22,7 +22,7 @@ export class UserDto {
     public password: string;
 
     // Gets only validated if it's part of the request's body
-    @ApiProperty()
+    @ApiPropertyOptional()
     @IsOptional()
     @IsString()
     public role?: string;
