@@ -14,7 +14,7 @@ import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
-    TypeOrmModule.forRoot(dbConfig),
+    TypeOrmModule.forRoot(dbConfig), 
     PingModule, 
     UsersModule,
     AuthModule
