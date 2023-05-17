@@ -27,7 +27,7 @@ export class UsersController {
         type: UserResponseDto,
         isArray: true
     }) 
-    getUserById(@Param('id') id: bigint) {
+    getUserById(@Param('id') id: number) {
         return this.userService.findOneById(id);
     }
 

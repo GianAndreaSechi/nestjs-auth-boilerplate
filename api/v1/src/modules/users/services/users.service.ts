@@ -28,7 +28,7 @@ export class UsersService {
     });
   }
 
-  async findOneById(id: bigint): Promise<UserResponseDto> {
+  async findOneById(id: number): Promise<UserResponseDto> {
     const user = await this.usersRepository.findOne({
       where: { id: id }
     });

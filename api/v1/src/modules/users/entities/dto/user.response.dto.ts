@@ -1,11 +1,11 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional, IsInt } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsInt, IsNumber } from 'class-validator';
 
 export class UserResponseDto {
     @ApiProperty()
-    @IsString()
+    @IsNumber()
     @IsNotEmpty()
-    public id: bigint;
+    public id: number;
     
     @ApiProperty()
     @IsString()

@@ -10,7 +10,7 @@ import { UserResponseDto } from './dto/user.response.dto';
 export class UserEntity {
     @ApiProperty()
     @PrimaryGeneratedColumn()
-    id: bigint;
+    id: number;
 
     @ApiProperty()
     @PrimaryColumn()
