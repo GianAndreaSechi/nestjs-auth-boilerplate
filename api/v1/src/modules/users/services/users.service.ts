@@ -16,23 +16,32 @@ export class UsersService {
 
   async findAll(): Promise<UserResponseDto[]> { 
     const users = await this.usersRepository.find();
-    return users.map((user) => ({
-      username: user.username,
-      email: user.email,
-      role: user.role
-    }));
+    
+    const userList: UserResponseDto[] = users.map((user: UserEntity) => user.getJson());
+    
+    return userList;
   }
 
-  findOneById(id: bigint): Promise<UserEntity> {
-    return this.usersRepository.findOne({
-      where: { id: id }
-    });
-  }
-
-  findOneByUsername(username: string): Promise<UserEntity> {
+  findOneAuth(username: string): Promise<UserEntity> {
     return this.usersRepository.findOne({
       where: { username: username }
     });
+  }
+
+  async findOneById(id: bigint): Promise<UserResponseDto> {
+    const user = await this.usersRepository.findOne({
+      where: { id: id }
+    });
+
+    return user.getJson();
+  }
+
+  async findOneByUsername(username: string): Promise<UserResponseDto> {
+    const user = await this.usersRepository.findOne({
+      where: { username: username }
+    });
+
+    return user.getJson();
   }
 
   addUser(payload: UserDto): Promise<UserResponseDto> {
@@ -52,12 +61,6 @@ export class UsersService {
     });
     
     return this.usersRepository.save(user)
-    .then(user => {
-      return {
-        username: user.username,
-        email: user.email,
-        role: user.role
-      };
-    });
+    .then(user => user.getJson());
   } 
 }
