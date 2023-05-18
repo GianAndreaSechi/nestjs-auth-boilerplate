@@ -16,8 +16,8 @@ Authorization action by role
 
 ---
 ### Routes
-The API prefix is: *api/v1*
-Baseurl: localhost:3000
+* The API prefix is: *api/v1*
+* baseurl: localhost:3000
 
 you can find the routes on localhost:3000/api via swagger
 
