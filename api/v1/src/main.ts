@@ -10,7 +10,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
   const config = new DocumentBuilder()
-      .setTitle('HomeToolbox')
+      .setTitle('JWT Auth Boilerplate')
       .setDescription('Api Boilerplate with authentication and swagger')
       .setVersion(version)
       .addBearerAuth({

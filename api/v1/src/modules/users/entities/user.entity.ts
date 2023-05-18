@@ -5,7 +5,7 @@ import { UserResponseDto } from './dto/user.response.dto';
 
 @Entity({
     name:'user',
-    database: 'myPocket'
+    database: process.env.DB_NAME
 })
 export class UserEntity {
     @ApiProperty()
