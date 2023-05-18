@@ -23,14 +23,14 @@ Authorization action by role
 you can find the routes on localhost:3000/api via swagger
 
 - GET:
-  - <base_url>/api/v1/ping
-  - <base_url>/api/v1/users
-  - <base_url>/api/v1/users/id/{id}
-  - <base_url>/api/v1/users/username/{username}
-  - <base_url>/api/v1/auth/profile
+  - <base_url>/api/v1/ping - no auth
+  - <base_url>/api/v1/users - auth
+  - <base_url>/api/v1/users/id/{id} - auth
+  - <base_url>/api/v1/users/username/{username} - auth
+  - <base_url>/api/v1/auth/profile - auth
 - POST:
-  - <base_url>/api/v1/auth/login
-  - <base_url>/api/v1/users/create
+  - <base_url>/api/v1/auth/login - no auth
+  - <base_url>/api/v1/users/create - auth
 
 *you can import on Postman the pre-setted collection you can find in Postman/API Auth Boilerplate - Collection.json*
 
