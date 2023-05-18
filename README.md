@@ -32,7 +32,7 @@ you can find the routes on localhost:3000/api via swagger
   - <base_url>/api/v1/auth/login - no auth
   - <base_url>/api/v1/users/create - auth
 
-*you can import on Postman the pre-setted collection you can find in Postman/API Auth Boilerplate - Collection.json*
+*you can import on Postman the pre-setted collection you can find in Postman/API_Auth_Boilerplate.postman_collection.json*
 
 ---
 ## Default User
