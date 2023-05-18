@@ -9,7 +9,8 @@ It use TypeORM to access the database, @nestjs/jwt to create bearer token and @n
 
 This is not production ready at the moment.
 
-### Next function
+---
+### Next functions
 Authorization action by role
 
 *At the moment there isn't UPDATE or DELETE user, it will be added as soon as possible.*
