@@ -5,7 +5,7 @@ This is a simple ready to use boilerplate with JWT Authentication and Authorizat
 
 You can simply login and get access-token for your application template (actually not provide specific action authorization).
 
-It use TypeORM to access the database, @nestjs/jwt to create bearer token and @nestjs/swagger to show routes details.
+It uses TypeORM to access the database, @nestjs/jwt to create bearer token and @nestjs/swagger to show routes details.
 
 This is not production ready at the moment.
 
